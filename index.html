@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <ul id="groceries">
+
+    </ul>
     <form method="post" id="addGroceryForm">
         <input id="groceryInput" type="text" placeholder="New grocery">
         <button type = "submit">
@@ -25,8 +28,20 @@
         var groceryInput = document.querySelector('#groceryInput')
         groceries.push(groceryInput.value)
         groceryInput.value = ''
-        console.log (groceries)
+        updateGroceries()
     }
+
+    function updateGroceries(){
+
+        var groceriesElement = document.querySelector('#groceries')
+        groceriesElement.innerHTML = ''
+        for (var currentIndex = 0; currentIndex < groceries.length; currentIndex ++) {
+            var grocery = groceries[currentIndex]
+            groceriesElement.innerHTML += '<li> ' + grocery + '</li>'
+        }
+    }
+
+
     
 
 
